@@ -1,0 +1,59 @@
+<div class="container-fluid">
+  <div>
+    <form [formGroup]="todoFrom">
+      <input type="text" name="" id="" formControlName="description">
+      <button type="submit" (click)="addTask()">Agregar</button>
+
+
+    </form>
+  </div>
+  <div class="row">
+    <div class="col-md-4 mb-4 vh-100">
+      <app-title title="To do"></app-title>
+      <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo"
+        [cdkDropListConnectedTo]="[progressList, doneList]" class="example-list" (cdkDropListDropped)="drop($event)">
+        <div *ngFor="let task of todo" cdkDrag>
+          <div class="example-box task-description">{{ task.description
+            }}
+            <div class="icon-container">
+              <i (click)="deleteTask(task)" class="pi pi-trash delete-icon" style="font-size: 2rem"></i>
+              <i (click)="editTask(task)" class="pi pi-pencil edit-icon" style="font-size: 2rem"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4 vh-100">
+      <app-title title="Progress"></app-title>
+      <div cdkDropList #progressList="cdkDropList" [cdkDropListData]="Progress"
+        [cdkDropListConnectedTo]="[todoList, doneList]" class="example-list" (cdkDropListDropped)="drop($event)">
+        <div *ngFor="let task of Progress" cdkDrag>
+          <div class="example-box task-description">{{ task.description
+          }}
+          <div class="icon-container">
+            <i (click)="deleteTask(task)" class="pi pi-trash delete-icon" style="font-size: 2rem"></i>
+            <i (click)="editTask(task)" class="pi pi-pencil edit-icon" style="font-size: 2rem"></i>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4 vh-100">
+      <app-title title="Done"></app-title>
+      <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done"
+        [cdkDropListConnectedTo]="[todoList, progressList]" class="example-list" (cdkDropListDropped)="drop($event)">
+        <div *ngFor="let task of done" cdkDrag>
+          <div class="example-box task-description">{{ task.description
+          }}
+          <div class="icon-container">
+            <i (click)="deleteTask(task)" class="pi pi-trash delete-icon" style="font-size: 2rem"></i>
+            <i (click)="editTask(task)" class="pi pi-pencil edit-icon" style="font-size: 2rem"></i>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

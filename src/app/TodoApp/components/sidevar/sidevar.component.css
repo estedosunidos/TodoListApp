@@ -1,0 +1,49 @@
+/* Estilos para el Formulario y la Sidebar */
+
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+.sidebar {
+  width: 21000px;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.btn-primary {
+  background-color: #3498db;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+}
+h1{
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+
+color: #3498db;
+
+margin-right:950px;
+
+}
+p-menubar{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  background-color: beige;
+}
