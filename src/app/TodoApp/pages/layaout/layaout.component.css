@@ -6,6 +6,107 @@
   display: inline-block;
   vertical-align: top;
 }
+/* Estilos generales para la página o componente */
+body {
+  font-family: 'Arial', sans-serif; /* Tipo de fuente */
+  background-color: #f4f4f4; /* Color de fondo gris claro */
+}
+
+.container {
+  max-width: 800px; /* Ancho máximo del contenedor principal */
+  margin: 20px auto; /* Centrar el contenedor en la página */
+}
+
+/* Estilos para la sección de tareas */
+.task-section {
+  background-color: #ebecf0; /* Color de fondo del área de tareas */
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+/* Estilos para el campo de descripción */
+.input-description {
+  width: 100%; /* Ocupar todo el ancho disponible */
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box; /* Incluir el relleno en el ancho total */
+}
+/* Estilos generales */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Estilos para las listas de Trello */
+.trello-list {
+  background-color: #ebecf0;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Estilos para las tarjetas de Trello */
+.trello-card {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Estilos para los íconos y contenedores */
+.icon-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilos específicos para el ícono de verificación (check) */
+.check-icon {
+  color: #5aac44; /* Color verde similar al ícono de Trello */
+}
+
+
+/* Estilos para el botón de agregar tarea */
+.add-task-button {
+  background-color: #5aac44; /* Color de fondo verde */
+  color: white; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  padding: 10px; /* Espaciado interno */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  border-radius: 5px; /* Bordes redondeados */
+  display: flex;
+  align-items: center; /* Centrar elementos verticalmente */
+}
+
+.add-task-button:hover {
+  background-color: #4b9e3b; /* Cambiar el color de fondo al pasar el ratón */
+}
+
+/* Estilos para los íconos de Material */
+.mat-icon {
+  margin-right: 8px; /* Espaciado a la derecha del icono */
+}
+
+/* Agregar estilos al botón de "agregar tarea" */
+button.add-task-button {
+  background-color: #4caf50; /* Color de fondo verde */
+  color: white; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  padding: 10px 20px; /* Espaciado interno */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Cambiar estilos al pasar el ratón sobre el botón */
+button.add-task-button:hover {
+  background-color: #45a049; /* Cambiar el color de fondo al pasar el ratón */
+}
+
 .icon-container {
   display: flex;
   gap: 10px; /* Espacio entre los íconos */

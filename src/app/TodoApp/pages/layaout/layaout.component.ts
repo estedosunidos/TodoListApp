@@ -21,6 +21,8 @@ export class LayaoutComponent implements OnInit {
 
   Progress : ITask[] = [];
   todoFrom!: FormGroup;
+  update:any
+  isEditEnabled: boolean =false
 
   // Asegúrate de definir descriptionValue y tasksValue en tu componente
   descriptionValue: string = '';
@@ -93,22 +95,18 @@ deleteTask(task: ITask) {
 
 }
 
-editTask(task: ITask) {
-  const index = this.todo.indexOf(task);
-  const index2=this.Progress.indexOf(task);
-  const index3= this.done.indexOf(task);
+editTask(task: ITask,i:number) {
+ this.todoFrom.controls['description'].setValue(task.description)
+ this.update=i
+ this.isEditEnabled = true
+}
 
-  if (index!== -1) {
-    this.todo[index].description = this.descriptionValue;
-  }
-  if(index2!== -1) {
-    this.Progress[index2].description = this.descriptionValue;
-  }
-  if(index3!== -1) {
-    this.done[index3].description = this.descriptionValue;
-  }
-  this.descriptionValue = '';
-  this.todoFrom.reset();
+UpdateTask() {
+ this.todo[this.update].description=this.todoFrom.value.i
+ this.todo[this.update].done=false
+ this.todoFrom.reset()
+ this.update=undefined
+ this.isEditEnabled=false
 }
 
 

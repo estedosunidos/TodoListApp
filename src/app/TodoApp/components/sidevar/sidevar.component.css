@@ -7,6 +7,35 @@
   padding: 20px;
   background-color: #f4f4f4;
 }
+/* Estilos para el menú */
+.p-menubar {
+  background-color: #007BFF; /* Color de fondo del menú */
+  color: white; /* Color del texto del menú */
+  font-weight: bold; /* Negrita para el texto del menú */
+
+  .p-menuitem-link {
+    padding: 1rem; /* Espaciado interno de los elementos del menú */
+  }
+
+  .p-menuitem {
+    &.p-menuitem-active {
+      background-color: #0056b3; /* Color de fondo cuando el elemento está activo */
+    }
+
+    &:hover {
+      background-color: #0056b3; /* Color de fondo al pasar el ratón sobre el elemento */
+    }
+  }
+}
+
+/* Estilos para el título dentro del menú */
+.p-menubar .d-flex {
+  h1 {
+    font-size: 1.5rem; /* Tamaño de fuente del título */
+    margin: 0; /* Eliminar márgenes del título */
+  }
+}
+
 
 .form-group {
   margin-bottom: 15px;

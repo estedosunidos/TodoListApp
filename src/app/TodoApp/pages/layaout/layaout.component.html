@@ -1,59 +1,74 @@
 <div class="container-fluid">
-  <div>
+  <!-- En tu plantilla HTML (template) -->
+<div class="container">
+  <div class="task-section">
     <form [formGroup]="todoFrom">
-      <input type="text" name="" id="" formControlName="description">
-      <button type="submit" (click)="addTask()">Agregar</button>
+      <input type="text" class="input-description" formControlName="description" placeholder="Agregar tarea...">
 
+      <!-- Botón de agregar tarea -->
+      <button *ngIf="!isEditEnabled" type="submit" (click)="addTask()" class="add-task-button">
+        <mat-icon class="mat-icon">add</mat-icon> Agregar tarea
+      </button>
 
+      <!-- Botón de actualizar tarea -->
+      <button *ngIf="isEditEnabled" type="submit" (click)="UpdateTask()" class="update-task-button">
+        Update
+      </button>
     </form>
   </div>
-  <div class="row">
-    <div class="col-md-4 mb-4 vh-100">
-      <app-title title="To do"></app-title>
-      <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo"
-        [cdkDropListConnectedTo]="[progressList, doneList]" class="example-list" (cdkDropListDropped)="drop($event)">
-        <div *ngFor="let task of todo" cdkDrag>
-          <div class="example-box task-description">{{ task.description
-            }}
-            <div class="icon-container">
-              <i (click)="deleteTask(task)" class="pi pi-trash delete-icon" style="font-size: 2rem"></i>
-              <i (click)="editTask(task)" class="pi pi-pencil edit-icon" style="font-size: 2rem"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <!-- Otras secciones de tareas o columnas podrían ir aquí -->
+</div>
 
-    <div class="col-md-4 mb-4 vh-100">
-      <app-title title="Progress"></app-title>
-      <div cdkDropList #progressList="cdkDropList" [cdkDropListData]="Progress"
-        [cdkDropListConnectedTo]="[todoList, doneList]" class="example-list" (cdkDropListDropped)="drop($event)">
-        <div *ngFor="let task of Progress" cdkDrag>
-          <div class="example-box task-description">{{ task.description
-          }}
+<div class="row">
+  <!-- Columna "To do" -->
+  <div class="col-md-4 mb-4 vh-100">
+    <app-title title="To do"></app-title>
+    <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo"
+      [cdkDropListConnectedTo]="[progressList, doneList]" class="trello-list" (cdkDropListDropped)="drop($event)">
+      <div *ngFor="let task of todo; let i = index" cdkDrag>
+        <div class="trello-card">
+          <div class="task-description">{{ task.description }}</div>
           <div class="icon-container">
             <i (click)="deleteTask(task)" class="pi pi-trash delete-icon" style="font-size: 2rem"></i>
-            <i (click)="editTask(task)" class="pi pi-pencil edit-icon" style="font-size: 2rem"></i>
+            <i (click)="editTask(task, i)" class="pi pi-pencil edit-icon" style="font-size: 2rem"></i>
           </div>
-        </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 mb-4 vh-100">
-      <app-title title="Done"></app-title>
-      <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done"
-        [cdkDropListConnectedTo]="[todoList, progressList]" class="example-list" (cdkDropListDropped)="drop($event)">
-        <div *ngFor="let task of done" cdkDrag>
-          <div class="example-box task-description">{{ task.description
-          }}
-          <div class="icon-container">
-            <i (click)="deleteTask(task)" class="pi pi-trash delete-icon" style="font-size: 2rem"></i>
-            <i (click)="editTask(task)" class="pi pi-pencil edit-icon" style="font-size: 2rem"></i>
-          </div>
-        </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Columna "Progress" -->
+  <div class="col-md-4 mb-4 vh-100">
+    <app-title title="Progress"></app-title>
+    <div cdkDropList #progressList="cdkDropList" [cdkDropListData]="Progress"
+      [cdkDropListConnectedTo]="[todoList, doneList]" class="trello-list" (cdkDropListDropped)="drop($event)">
+      <div *ngFor="let task of Progress; let i = index" cdkDrag>
+        <div class="trello-card">
+          <div class="task-description">{{ task.description }}</div>
+          <div class="icon-container">
+            <i (click)="deleteTask(task)" class="pi pi-trash delete-icon" style="font-size: 2rem"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Columna "Done" -->
+  <div class="col-md-4 mb-4 vh-100">
+    <app-title title="Done"></app-title>
+    <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done"
+      [cdkDropListConnectedTo]="[todoList, progressList]" class="trello-list" (cdkDropListDropped)="drop($event)">
+      <div *ngFor="let task of done; let i = index" cdkDrag>
+        <div class="trello-card">
+          <div class="task-description">{{ task.description }}</div>
+          <div class="icon-container">
+            <i (click)="deleteTask(task)" class="pi pi-trash delete-icon" style="font-size: 2rem"></i>
+            <mat-icon class="check-icon">check_circle</mat-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>
